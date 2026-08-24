@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Loja Web - Clientes</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" th:href="@{/cliente.css}">
+	</head>
+	
+	<body>
+		<h1>Clientes</h1>
+
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Nome</th>
+				<th>Situação</th>
+			</tr>
+			
+			<tr th:each="cliente : ${clientes}"
+				th:class="${not cliente.ativo ? 'destaque' : ''}">
+				<td th:text="${cliente.id}"></td>
+				<td th:text="${cliente.nome}"></td>
+				<td>
+					<span th:if="${cliente.ativo}">Ativo</span>
+					<span th:unless="${cliente.ativo}">Inativo</span>
+				</td>								
+			</tr>
+		</table>
+		
+	</body>
+</html>
