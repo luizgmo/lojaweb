@@ -10,17 +10,17 @@
 	<body>
 		<h1>Editar cliente</h1>
 
-		<form method="post">
+		<form method="post" th:object="${cliente}">
 			<label>ID:</label>
-			<input type="text" th:name="id" th:value="${cliente.id}">
+			<input type="text" th:field="*{id}">
 			<br>
 
 			<label>Nome:</label>
-			<input type="text" th:name="nome" th:value="${cliente.nome}">
+			<input type="text" th:field="*{nome}">
 			<br>
 						
 			<label>E-mail:</label>
-			<input type="text" th:name="email" th:value="${cliente.email}">
+			<input type="text" th:field="*{email}">
 			<br>
 						
 			<br>
