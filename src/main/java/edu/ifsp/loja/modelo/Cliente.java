@@ -3,8 +3,10 @@ package edu.ifsp.loja.modelo;
 public class Cliente {
 	private long id;
 	private String nome;
+	private String email;
 	private boolean ativo;
 	
+	public Cliente() {}
 
 	public Cliente(long id, String nome, boolean ativo) {
 		this.id = id;
@@ -34,6 +36,14 @@ public class Cliente {
 
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

@@ -5,13 +5,31 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import edu.ifsp.loja.modelo.Cliente;
 
 @Controller
+@RequestMapping("/cliente")
 public class ClienteController {
 	
-	@GetMapping("/cliente/listar")
+	@GetMapping("/editar")
+	public String iniciar(Model model) {
+		model.addAttribute("cliente", new Cliente());
+		return "editar";
+	}
+	
+	@PostMapping("/editar")
+	public String salvar(Cliente cliente) {
+		System.out.println("ClienteController.salvar()");
+		System.out.println("ID: " + cliente.getId());
+		System.out.println("Nome: " + cliente.getNome());
+		System.out.println("E-mail: " + cliente.getEmail());
+		return "editar";
+	}
+	
+	@GetMapping("/listar")
 	public String listar(Model model) {
 		// simulando consulta ao banco de dados
 		List<Cliente> clientes = List.of(

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Loja Web - Clientes</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" th:href="@{/cliente.css}">
+	</head>
+	
+	<body>
+		<h1>Editar cliente</h1>
+
+		<form method="post">
+			<label>ID:</label>
+			<input type="text" th:name="id" th:value="${cliente.id}">
+			<br>
+
+			<label>Nome:</label>
+			<input type="text" th:name="nome" th:value="${cliente.nome}">
+			<br>
+						
+			<label>E-mail:</label>
+			<input type="text" th:name="email" th:value="${cliente.email}">
+			<br>
+						
+			<br>
+			<button type="submit">Salvar</button>			
+		</form>
+
+	</body>
+</html>
