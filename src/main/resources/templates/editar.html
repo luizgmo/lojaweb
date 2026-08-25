@@ -13,14 +13,26 @@
 		<form method="post" th:object="${cliente}">
 			<label>ID:</label>
 			<input type="text" th:field="*{id}">
+			<span 
+				th:if="#{fields.hasErrors('id')}"
+				th:errors="*{id}"
+				>erro</span>
 			<br>
 
 			<label>Nome:</label>
 			<input type="text" th:field="*{nome}">
+			<span 
+				th:if="#{fields.hasErrors('nome')}"
+				th:errors="*{nome}"
+				>erro</span>			
 			<br>
 						
 			<label>E-mail:</label>
 			<input type="text" th:field="*{email}">
+			<span 
+				th:if="#{fields.hasErrors('email')}"
+				th:errors="*{email}"
+				>erro</span>			
 			<br>
 						
 			<br>
