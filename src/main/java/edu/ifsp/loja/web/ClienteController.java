@@ -2,6 +2,7 @@ package edu.ifsp.loja.web;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -10,11 +11,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import edu.ifsp.loja.modelo.Cliente;
+import edu.ifsp.loja.persistencia.ClienteRepositorio;
 import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/cliente")
 public class ClienteController {
+	
+	@Autowired
+	private ClienteRepositorio repo;
 	
 	@GetMapping("/editar")
 	public String iniciar(Model model) {
@@ -41,13 +46,7 @@ public class ClienteController {
 	
 	@GetMapping("/listar")
 	public String listar(Model model) {
-		// simulando consulta ao banco de dados
-		List<Cliente> clientes = List.of(
-				new Cliente(1, "Juvenal Junqueira", true),
-				new Cliente(2, "Francisco Fernandes", false),
-				new Cliente(3, "Mário Martins", true),
-				new Cliente(4, "Antônio Antunes", true)
-				);
+		Iterable<Cliente> clientes = repo.findAll();
 		
 		model.addAttribute("clientes", clientes);
 				
