@@ -16,7 +16,9 @@ public class ClienteRepositorioJdbc implements ClienteRepositorio {
 	
 	@Override
 	public Cliente findById(long id) {
-		throw new UnsupportedOperationException();
+		return jdbc.queryForObject(
+				"SELECT id, nome, email, ativo FROM cliente WHERE id = ?", 
+				this::mapRow, id);
 	}
 
 	@Override
