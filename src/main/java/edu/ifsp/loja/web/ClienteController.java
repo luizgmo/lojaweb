@@ -19,27 +19,27 @@ public class ClienteController {
 	@Autowired
 	private ClienteRepositorio repo;
 	
-	@GetMapping("/editar")
+	@GetMapping("/novo")
 	public String iniciar(Model model) {
 		model.addAttribute("cliente", new Cliente());
-		return "editar";
+		return "cliente/editar";
 	}
 	
-	@PostMapping("/editar")
+	@PostMapping("/salvar")
 	public String salvar(@Valid Cliente cliente, Errors errors) {
 		if (errors.hasErrors()) {
 			for (var e : errors.getAllErrors()) {
 				System.out.println(e);
 			}
 			
-			return "editar";
+			return "cliente/editar";
 		}
 		
 		System.out.println("ClienteController.salvar()");
 		System.out.println("ID: " + cliente.getId());
 		System.out.println("Nome: " + cliente.getNome());
 		System.out.println("E-mail: " + cliente.getEmail());
-		return "redirect:/cliente/editar";
+		return "redirect:/cliente/novo";
 	}
 	
 	@GetMapping("/listar")
@@ -48,6 +48,6 @@ public class ClienteController {
 		
 		model.addAttribute("clientes", clientes);
 				
-		return "listar";
+		return "cliente/listar";
 	}
 }

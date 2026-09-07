@@ -10,7 +10,10 @@
 	<body>
 		<h1>Editar cliente</h1>
 
-		<form method="post" th:object="${cliente}">
+		<form method="post" 
+			th:action="@{/cliente/salvar}"
+			th:object="${cliente}">
+			
 			<label>ID:</label>
 			<input type="text" th:field="*{id}">
 			<span 
