@@ -1,10 +1,14 @@
 package edu.ifsp.loja.persistencia;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import edu.ifsp.loja.modelo.Cliente;
@@ -23,9 +27,38 @@ public class ClienteRepositorioJdbc implements ClienteRepositorio {
 
 	@Override
 	public Cliente save(Cliente cliente) {
-		throw new UnsupportedOperationException();
+		
+		if (cliente.getId() == 0) {
+			insert(cliente);
+		} else {
+			update(cliente);
+		}
+		
+		return cliente;
 	}
 
+	private void update(Cliente cliente) {
+		jdbc.update("UPDATE cliente SET nome = ?, email = ? WHERE id = ?",
+				cliente.getNome(),
+				cliente.getEmail(),
+				cliente.getId());
+	}
+
+	private void insert(Cliente cliente) {
+		KeyHolder holder = new GeneratedKeyHolder(); 
+
+		jdbc.update(conn -> {
+			PreparedStatement ps = conn.prepareStatement(
+					"INSERT INTO cliente (nome, email) VALUES (?, ?)",
+					Statement.RETURN_GENERATED_KEYS);
+			ps.setString(1, cliente.getNome());
+			ps.setString(2, cliente.getEmail());
+			return ps;
+			}, holder);
+		
+		cliente.setId(holder.getKey().longValue());		
+	}
+	
 	@Override
 	public Iterable<Cliente> findAll() {
 		return jdbc.query(

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -36,10 +37,17 @@ public class ClienteController {
 		}
 		
 		System.out.println("ClienteController.salvar()");
-		System.out.println("ID: " + cliente.getId());
-		System.out.println("Nome: " + cliente.getNome());
-		System.out.println("E-mail: " + cliente.getEmail());
-		return "redirect:/cliente/novo";
+		repo.save(cliente);
+		return "redirect:/cliente/" + cliente.getId() + "/editar";
+	}
+	
+	@GetMapping("/{id}/editar")
+	public String editar(@PathVariable(name = "id") Long id, Model model) {
+		
+		Cliente cliente = repo.findById(id);
+		model.addAttribute("cliente", cliente);
+		
+		return "cliente/editar";
 	}
 	
 	@GetMapping("/listar")

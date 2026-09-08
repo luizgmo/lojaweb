@@ -15,11 +15,8 @@
 			th:object="${cliente}">
 			
 			<label>ID:</label>
-			<input type="text" th:field="*{id}">
-			<span 
-				th:if="#{fields.hasErrors('id')}"
-				th:errors="*{id}"
-				>erro</span>
+			<input type="hidden" th:field="*{id}">
+			<input type="text" disabled th:value="*{id}">
 			<br>
 
 			<label>Nome:</label>

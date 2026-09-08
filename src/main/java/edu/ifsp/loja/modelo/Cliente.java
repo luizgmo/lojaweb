@@ -2,11 +2,9 @@ package edu.ifsp.loja.modelo;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
 public class Cliente {
-	@Positive(message = "{cliente.id.positive}")
 	private long id;
 	
 	@Size(min = 5)
