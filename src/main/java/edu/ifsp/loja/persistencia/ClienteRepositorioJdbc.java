@@ -75,4 +75,8 @@ public class ClienteRepositorioJdbc implements ClienteRepositorio {
 		return cliente;
 	}
 
+	@Override
+	public void deleteById(long id) {
+		jdbc.update("DELETE FROM cliente WHERE id = ?", id);
+	}
 }

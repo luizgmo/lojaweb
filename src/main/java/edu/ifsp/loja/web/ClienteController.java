@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.ifsp.loja.modelo.Cliente;
 import edu.ifsp.loja.persistencia.ClienteRepositorio;
@@ -58,4 +59,18 @@ public class ClienteController {
 				
 		return "cliente/listar";
 	}
+	
+	@PostMapping("/{id}/excluir")
+	public String excluir(
+			@PathVariable(name = "id") Long id,
+			RedirectAttributes redirectAttributes
+			) {
+		
+		repo.deleteById(id);		
+		redirectAttributes.addFlashAttribute("deleteOk", id);
+		
+		return "redirect:/cliente/listar";
+	}
+	
+	
 }
