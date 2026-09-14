@@ -43,7 +43,7 @@ public class ClienteController {
 	}
 	
 	@GetMapping("/{id}/editar")
-	public String editar(@PathVariable(name = "id") Long id, Model model) {
+	public String editar(@PathVariable(name = "id") Integer id, Model model) {
 		
 		Cliente cliente = repo.findById(id);
 		model.addAttribute("cliente", cliente);
@@ -62,7 +62,7 @@ public class ClienteController {
 	
 	@PostMapping("/{id}/excluir")
 	public String excluir(
-			@PathVariable(name = "id") Long id,
+			@PathVariable(name = "id") Integer id,
 			RedirectAttributes redirectAttributes
 			) {
 		

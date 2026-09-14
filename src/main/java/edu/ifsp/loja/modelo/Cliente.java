@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 public class Cliente {
-	private long id;
+	private Integer id;
 	
 	@Size(min = 5)
 	private String nome;
@@ -18,17 +18,17 @@ public class Cliente {
 	
 	public Cliente() {}
 
-	public Cliente(long id, String nome, boolean ativo) {
+	public Cliente(int id, String nome, boolean ativo) {
 		this.id = id;
 		this.nome = nome;
 		this.ativo = ativo;
 	}
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

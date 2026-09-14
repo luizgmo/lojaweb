@@ -19,7 +19,7 @@ public class ClienteRepositorioJdbc implements ClienteRepositorio {
 	private JdbcTemplate jdbc;
 	
 	@Override
-	public Cliente findById(long id) {
+	public Cliente findById(int id) {
 		return jdbc.queryForObject(
 				"SELECT id, nome, email, ativo FROM cliente WHERE id = ?", 
 				this::mapRow, id);
@@ -56,7 +56,7 @@ public class ClienteRepositorioJdbc implements ClienteRepositorio {
 			return ps;
 			}, holder);
 		
-		cliente.setId(holder.getKey().longValue());		
+		cliente.setId(holder.getKey().intValue());		
 	}
 	
 	@Override
@@ -68,7 +68,7 @@ public class ClienteRepositorioJdbc implements ClienteRepositorio {
 	
 	private Cliente mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Cliente cliente = new Cliente();
-		cliente.setId(rs.getLong("id"));
+		cliente.setId(rs.getInt("id"));
 		cliente.setNome(rs.getString("nome"));
 		cliente.setEmail(rs.getString("email"));
 		cliente.setAtivo(rs.getBoolean("ativo"));
@@ -76,7 +76,7 @@ public class ClienteRepositorioJdbc implements ClienteRepositorio {
 	}
 
 	@Override
-	public void deleteById(long id) {
+	public void deleteById(int id) {
 		jdbc.update("DELETE FROM cliente WHERE id = ?", id);
 	}
 }

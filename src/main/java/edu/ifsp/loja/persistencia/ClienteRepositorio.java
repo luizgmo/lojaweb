@@ -3,8 +3,8 @@ package edu.ifsp.loja.persistencia;
 import edu.ifsp.loja.modelo.Cliente;
 
 public interface ClienteRepositorio {
-	Cliente findById(long id);
+	Cliente findById(int id);
 	Cliente save(Cliente cliente);
 	Iterable<Cliente> findAll();	
-	void deleteById(long id);
+	void deleteById(int id);
 }
