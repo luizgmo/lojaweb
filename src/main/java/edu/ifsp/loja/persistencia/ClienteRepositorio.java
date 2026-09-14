@@ -1,10 +1,9 @@
 package edu.ifsp.loja.persistencia;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
 import edu.ifsp.loja.modelo.Cliente;
 
-public interface ClienteRepositorio {
-	Cliente findById(int id);
-	Cliente save(Cliente cliente);
-	Iterable<Cliente> findAll();	
-	void deleteById(int id);
+public interface ClienteRepositorio extends JpaRepository<Cliente, Integer> {
+	
 }

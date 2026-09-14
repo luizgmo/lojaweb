@@ -45,7 +45,7 @@ public class ClienteController {
 	@GetMapping("/{id}/editar")
 	public String editar(@PathVariable(name = "id") Integer id, Model model) {
 		
-		Cliente cliente = repo.findById(id);
+		Cliente cliente = repo.findById(id).get();
 		model.addAttribute("cliente", cliente);
 		
 		return "cliente/editar";
