@@ -19,7 +19,7 @@ mysql_start() {
         if [ "$USER" = "aluno" ]; then
 	    sudo /bin/systemctl start mysql.service
         else
-            podman start lojadb
+            podman start lojadb 1> /dev/null
         fi
 }
 
