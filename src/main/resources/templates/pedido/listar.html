@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>Loja Web</title>
+            <meta charset="UTF-8">
+    </head>
+    
+    <body>
+            <h1>Loja Web</h1>
+            
+            <h2>Pedidos</h2>		
+            
+            
+            <table border="1" th:if="${not #lists.isEmpty(pedidos)}">
+                    <tr>
+                            <th>ID</th>
+                            <th>Data</th>
+                            <th>Cliente</th>
+                            <th></th>
+                    </tr>
+                                            
+                    <tr th:each="pedido : ${pedidos}">
+                            <td th:text="${pedido.id}"></td>
+                            <td th:text="${pedido.dataCriacao}"></td>
+                            <td th:text="${pedido.cliente.nome}"></td>
+                    </tr>
+            </table>
+            
+            <p th:if="${#lists.isEmpty(pedidos)}">
+            	Nenhum pedido encontrado.
+            </p>
+    </body>
+</html>
+

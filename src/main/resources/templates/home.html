@@ -5,20 +5,33 @@
 		<title>Loja Web - Home</title>
 		<meta charset="UTF-8">
 	</head>
-	
+
 	<body>
 		<h1>Bem-vindo!</h1>
-		
 		<p>Olá, <span th:text="${usuario}"></span>!</p>
-		
+
 		<ul>
 			<li>
-				Cliente
+				Clientes
 				<ul>
 					<li><a th:href="@{/cliente/listar}">Listar</a></li>
 					<li><a th:href="@{/cliente/novo}">Novo</a></li>
 				</ul>
 			</li>
-		</ul>
+
+			<li>
+				Produtos
+				<ul>
+					<li><a th:href="@{/produto/listar}">Listar</a></li>
+				</ul>
+			</li>
+
+			<li>
+				Pedidos
+				<ul>
+					<li><a th:href="@{/pedido/listar}">Listar</a></li>
+				</ul>
+			</li>
+		</ul>		
 	</body>
 </html>
