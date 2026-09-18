@@ -1,6 +1,8 @@
 package edu.ifsp.loja.modelo;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Pedido {
@@ -20,6 +23,13 @@ public class Pedido {
 	
 	@ManyToOne
 	private Cliente cliente;
+	
+	@OneToMany(mappedBy = "pedido")
+	private List<PedidoItem> itens = new ArrayList<>();
+	
+	public List<PedidoItem> getItens() {
+		return itens;
+	}
 
 	public Integer getId() {
 		return id;

@@ -19,7 +19,7 @@
 				<th>Preço Unitário</th>
 			</tr>
 
-			<tr th:each="item : ${itens}">
+			<tr th:each="item : ${pedido.itens}">
 				<td th:text="${item.id}"></td>
 				<td th:text="${item.produto.descricao}"></td>
 				<td th:text="${item.quantidade}"></td>
