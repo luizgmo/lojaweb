@@ -23,6 +23,9 @@
                             <td th:text="${pedido.id}"></td>
                             <td th:text="${pedido.dataCriacao}"></td>
                             <td th:text="${pedido.cliente.nome}"></td>
+							<td>
+					            <a th:href="@{'/pedido/' + ${pedido.id}}">detalhes</a>
+					        </td>
                     </tr>
             </table>
             
