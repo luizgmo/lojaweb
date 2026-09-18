@@ -2,10 +2,12 @@ package edu.ifsp.loja.modelo;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Pedido {
@@ -13,8 +15,10 @@ public class Pedido {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@Column(name = "dt_criacao")
 	private Date dataCriacao;
 	
+	@ManyToOne
 	private Cliente cliente;
 
 	public Integer getId() {
