@@ -3,6 +3,7 @@
 	<head>
 		<title>Loja Web</title>
 		<meta charset="UTF-8">
+		<script th:src="@{/js/produto-excluir.js}" defer></script>
 	</head>
 
 	<body>
@@ -17,12 +18,16 @@
 				<th>ID</th>
 				<th>Descrição</th>
 				<th>Preço</th>
+				<th></th>
 			</tr>
 
 			<tr th:each="produto : ${produtos}">
 				<td th:text="${produto.id}">1</td>
 				<td th:text="${produto.descricao}">Cliente</td>
 				<td th:text="${#numbers.formatDecimal(produto.preco, 1, 2, 'COMMA')}">preço</td>
+				<td>
+					<a class="action-remove" th:data-id="${produto.id}" href="#">Excluir</a>
+				</td>
 			</tr>
 
 
