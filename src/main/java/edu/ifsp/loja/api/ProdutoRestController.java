@@ -1,9 +1,11 @@
 package edu.ifsp.loja.api;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,6 +38,16 @@ public class ProdutoRestController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public Produto save(@RequestBody Produto produto) {
 		return repo.save(produto);
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<Produto> findById(@PathVariable("id") Integer id) {
+		Optional<Produto> opt = repo.findById(id);
+		if (opt.isPresent()) {
+			return new ResponseEntity<>(opt.get(), HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<>((Produto)null, HttpStatus.NOT_FOUND);
 	}
 	
 }
