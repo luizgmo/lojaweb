@@ -25,12 +25,6 @@ public class Cliente {
 	
 	public Cliente() {}
 
-	public Cliente(int id, String nome, boolean ativo) {
-		this.id = id;
-		this.nome = nome;
-		this.ativo = ativo;
-	}
-
 	public Integer getId() {
 		return id;
 	}
