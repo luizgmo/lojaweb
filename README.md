@@ -1,18 +1,29 @@
 # Loja Web
 
-Aplicação de loja com back end Spring Boot e front end Angular no mesmo repositório.
+Aplicação de loja com back end Spring Boot e front end Angular, organizados em um monorepo.
 
 ## Estrutura
 
-- `src/` — back end Spring Boot (Java 21, Spring Data JPA, MySQL)
-- `loja-front/` — front end Angular 21 (standalone components, Vitest)
+```
+.
+├── backend/    # Spring Boot (Java 21, Spring Data JPA, MySQL)
+└── frontend/   # Angular 21 (standalone components, Vitest)
+```
 
 ## Back end
 
 Requisitos: Java 21 e MySQL em `localhost:3307`, base `loja`.
 
 ```sh
+cd backend
 ./gradlew bootRun
+```
+
+Para recriar e popular o banco (com o MySQL já em execução):
+
+```sh
+cd backend
+./database-reset.sh
 ```
 
 API em <http://localhost:8080>.
@@ -33,7 +44,7 @@ API em <http://localhost:8080>.
 ## Front end
 
 ```sh
-cd loja-front
+cd frontend
 npm install
 npm start
 ```
@@ -43,6 +54,6 @@ Aplicação em <http://localhost:4200>.
 ## Testes
 
 ```sh
-./gradlew test            # back end
-cd loja-front && npm test # front end
+cd backend && ./gradlew test
+cd frontend && npm test
 ```
