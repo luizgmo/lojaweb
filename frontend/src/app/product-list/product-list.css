@@ -3,14 +3,10 @@
   overflow-x: auto;
 }
 
-h2 {
-  --eyebrow: 'Estoque';
-}
-
 /* ---------- Tabela editorial ---------- */
 table {
   width: 100%;
-  min-width: 440px;
+  min-width: 640px;
   border-collapse: collapse;
   text-align: left;
 }
@@ -56,22 +52,24 @@ td:first-child {
   font-variant-numeric: tabular-nums;
 }
 
-th:nth-child(2),
-td:nth-child(2) {
-  padding-right: 2rem;
+th:nth-child(3),
+td:nth-child(3) {
+  padding-left: 2rem;
+  text-align: right;
+}
+
+td.price {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  font-variant-numeric: lining-nums tabular-nums;
 }
 
 th:last-child,
 td:last-child {
+  width: 12rem;
   text-align: right;
-  white-space: nowrap;
-}
-
-td:last-child {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  letter-spacing: -0.01em;
-  font-variant-numeric: lining-nums tabular-nums;
 }
 
 @media (max-width: 600px) {
@@ -80,12 +78,7 @@ td:last-child {
     font-size: 0.9375rem;
   }
 
-  td:last-child {
-    font-size: 1.2rem;
-  }
-
-  th:nth-child(2),
-  td:nth-child(2) {
-    padding-right: 1rem;
+  td.price {
+    font-size: 1.1rem;
   }
 }

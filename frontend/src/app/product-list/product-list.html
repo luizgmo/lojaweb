@@ -1,22 +1,39 @@
-<h2>Produtos</h2>
+<div class="page-head">
+  <h2>Produtos</h2>
+  <a class="btn" routerLink="/produtos/novo">Novo produto</a>
+</div>
 <p class="lead">Itens cadastrados no catálogo, com código e preço.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Descrição</th>
-      <th scope="col">Preço</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    @for (produto of produtos$ | async; track produto.id) {
+@if (loading()) {
+  <p class="state">Carregando produtos…</p>
+} @else if (error()) {
+  <p class="state error">{{ error() }}</p>
+} @else if (produtos().length === 0) {
+  <p class="state">Nenhum produto cadastrado.</p>
+} @else {
+  <table>
+    <thead>
       <tr>
-        <td>{{ produto.id }}</td>
-        <td>{{ produto.descricao }}</td>
-        <td>{{ produto.preco }}</td>
+        <th scope="col">ID</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Preço</th>
+        <th scope="col">Ações</th>
       </tr>
-    }
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      @for (produto of produtos(); track produto.id) {
+        <tr>
+          <td>{{ produto.id }}</td>
+          <td>{{ produto.descricao }}</td>
+          <td class="price">{{ produto.preco | currency: 'BRL' }}</td>
+          <td class="row-actions">
+            <a [routerLink]="['/produtos', produto.id]">Ver</a>
+            <a [routerLink]="['/produtos', produto.id, 'editar']">Editar</a>
+            <button type="button" (click)="remove(produto)">Excluir</button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}

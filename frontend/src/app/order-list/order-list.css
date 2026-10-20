@@ -1,0 +1,119 @@
+:host {
+  display: block;
+  overflow-x: auto;
+}
+
+h2 {
+  --eyebrow: 'Vendas';
+}
+
+/* ---------- Tabela editorial ---------- */
+table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+thead th {
+  padding: 0 0 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--ink);
+}
+
+tbody td {
+  padding: 1.15rem 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+}
+
+tbody tr:last-child td {
+  border-bottom: 1px solid var(--ink);
+}
+
+tbody tr {
+  transition: color 0.15s ease;
+}
+
+tbody tr:hover td:nth-child(3) {
+  color: var(--accent);
+}
+
+tbody a {
+  text-underline-offset: 3px;
+}
+
+tbody a:hover {
+  color: var(--accent);
+}
+
+th:first-child,
+td:first-child {
+  width: 4rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+td.date {
+  padding-right: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  white-space: nowrap;
+  color: var(--muted);
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+  padding-right: 2rem;
+}
+
+th:nth-child(4),
+td:nth-child(4) {
+  width: 5rem;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+th:nth-child(5),
+td:nth-child(5) {
+  padding-left: 2rem;
+  text-align: right;
+  white-space: nowrap;
+}
+
+td.price {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+th:last-child,
+td:last-child {
+  width: 5rem;
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  tbody td {
+    padding: 0.95rem 0;
+    font-size: 0.9375rem;
+  }
+
+  td.price {
+    font-size: 1.1rem;
+  }
+}

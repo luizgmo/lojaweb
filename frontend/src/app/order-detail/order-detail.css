@@ -1,0 +1,123 @@
+:host {
+  display: block;
+  overflow-x: auto;
+}
+
+h2 {
+  --eyebrow: 'Detalhe';
+}
+
+/* ---------- Itens do pedido ---------- */
+.order-items {
+  width: 100%;
+  min-width: 560px;
+  margin-top: 2.5rem;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.order-items th {
+  padding: 0 0 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--muted);
+  border-bottom: 1px solid var(--ink);
+}
+
+.order-items td {
+  padding: 1rem 0;
+  font-size: 0.95rem;
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+}
+
+.order-items tr:last-child td {
+  border-bottom: 0;
+}
+
+.order-items a {
+  text-underline-offset: 3px;
+}
+
+.order-items a:hover {
+  color: var(--accent);
+}
+
+.order-items th:first-child,
+.order-items td:first-child {
+  width: 4rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.order-items th:nth-child(3),
+.order-items td:nth-child(3) {
+  width: 5rem;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.order-items th:nth-child(4),
+.order-items td:nth-child(4) {
+  padding-left: 2rem;
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.order-items th:last-child,
+.order-items td:last-child {
+  padding-left: 2rem;
+  text-align: right;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.order-total {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ink);
+}
+
+.order-total span {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.order-total strong {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+@media (max-width: 600px) {
+  .order-items td {
+    padding: 0.85rem 0;
+    font-size: 0.9rem;
+  }
+
+  .order-total strong {
+    font-size: 1.6rem;
+  }
+}

@@ -1,5 +1,7 @@
 <h2>Início</h2>
-<p class="lead">Consulte o catálogo, veja os clientes cadastrados ou adicione um novo produto.</p>
+<p class="lead">
+  Consulte produtos, clientes e pedidos, ou cadastre novos itens no catálogo e novos clientes.
+</p>
 
 <ul>
   <li>
@@ -15,9 +17,21 @@
     </a>
   </li>
   <li>
+    <a [routerLink]="['pedidos']">
+      <span class="item-title">Pedidos</span>
+      <span class="item-desc">Acompanhe os pedidos registrados e seus itens.</span>
+    </a>
+  </li>
+  <li>
     <a [routerLink]="['produtos', 'novo']">
       <span class="item-title">Novo produto</span>
       <span class="item-desc">Adicione um item ao catálogo da loja.</span>
+    </a>
+  </li>
+  <li>
+    <a [routerLink]="['clientes', 'novo']">
+      <span class="item-title">Novo cliente</span>
+      <span class="item-desc">Cadastre um cliente para receber pedidos.</span>
     </a>
   </li>
 </ul>

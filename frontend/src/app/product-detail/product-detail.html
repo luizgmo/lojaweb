@@ -1,0 +1,33 @@
+<h2>Produto</h2>
+<p class="lead">Detalhes do item no catálogo.</p>
+
+@if (loading()) {
+  <p class="state">Carregando produto…</p>
+} @else if (produto(); as p) {
+  @if (error()) {
+    <p class="state error">{{ error() }}</p>
+  }
+
+  <dl class="detail">
+    <div>
+      <dt>ID</dt>
+      <dd>{{ p.id }}</dd>
+    </div>
+    <div>
+      <dt>Descrição</dt>
+      <dd>{{ p.descricao }}</dd>
+    </div>
+    <div>
+      <dt>Preço</dt>
+      <dd class="money">{{ p.preco | currency: 'BRL' }}</dd>
+    </div>
+  </dl>
+
+  <div class="actions-row">
+    <a class="btn" [routerLink]="['/produtos', p.id, 'editar']">Editar</a>
+    <button type="button" class="link-danger" (click)="remove()">Excluir</button>
+    <a class="back" routerLink="/produtos">← Voltar para produtos</a>
+  </div>
+} @else if (error()) {
+  <p class="state error">{{ error() }}</p>
+}

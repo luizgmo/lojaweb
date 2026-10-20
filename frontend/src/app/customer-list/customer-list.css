@@ -10,7 +10,7 @@ h2 {
 /* ---------- Tabela editorial ---------- */
 table {
   width: 100%;
-  min-width: 560px;
+  min-width: 760px;
   border-collapse: collapse;
   text-align: left;
 }
@@ -69,13 +69,9 @@ td:nth-child(3) {
   overflow-wrap: anywhere;
 }
 
-th:last-child,
-td:last-child {
-  text-align: right;
-  white-space: nowrap;
-}
-
-td:last-child {
+th:nth-child(4),
+td:nth-child(4) {
+  width: 7rem;
   font-family: var(--font-mono);
   font-size: 0.6875rem;
   letter-spacing: 0.14em;
@@ -83,8 +79,14 @@ td:last-child {
   color: var(--accent);
 }
 
-td:last-child.inactive {
+td.inactive {
   color: var(--muted);
+}
+
+th:last-child,
+td:last-child {
+  width: 12rem;
+  text-align: right;
 }
 
 @media (max-width: 600px) {
