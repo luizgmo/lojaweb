@@ -1,0 +1,67 @@
+:host {
+  display: block;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* ---------- Cabeçalho ---------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 1.15rem clamp(1.25rem, 5vw, 3rem);
+  background: var(--paper);
+  border-bottom: 1px solid var(--ink);
+}
+
+header a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--ink);
+  transition: color 0.15s ease;
+}
+
+header a:hover {
+  color: var(--accent);
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+/* ---------- Conteúdo ---------- */
+.content {
+  flex: 1;
+  width: min(980px, 100%);
+  margin-inline: auto;
+  padding: clamp(3rem, 9vw, 6rem) clamp(1.25rem, 5vw, 2rem) clamp(4rem, 10vw, 7rem);
+}
+
+/* ---------- Rodapé ---------- */
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  width: min(980px, 100%);
+  margin-inline: auto;
+  padding: 1.25rem clamp(1.25rem, 5vw, 2rem) 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-top: 1px solid var(--rule);
+}
