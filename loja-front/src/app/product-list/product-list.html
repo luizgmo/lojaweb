@@ -1,0 +1,22 @@
+<h2>Produtos</h2>
+<p class="lead">Itens cadastrados no catálogo, com código e preço.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Preço</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @for (produto of produtos$ | async; track produto.id) {
+      <tr>
+        <td>{{ produto.id }}</td>
+        <td>{{ produto.descricao }}</td>
+        <td>{{ produto.preco }}</td>
+      </tr>
+    }
+  </tbody>
+</table>

@@ -1,0 +1,24 @@
+<h2>Clientes</h2>
+<p class="lead">Clientes cadastrados, com contato e situação.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nome</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Situação</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @for (cliente of clientes$ | async; track cliente.id) {
+      <tr>
+        <td>{{ cliente.id }}</td>
+        <td>{{ cliente.nome }}</td>
+        <td>{{ cliente.email }}</td>
+        <td [class.inactive]="!cliente.ativo">{{ cliente.ativo ? 'Ativo' : 'Inativo' }}</td>
+      </tr>
+    }
+  </tbody>
+</table>

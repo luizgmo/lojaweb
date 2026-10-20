@@ -1,0 +1,23 @@
+<h2>Início</h2>
+<p class="lead">Consulte o catálogo, veja os clientes cadastrados ou adicione um novo produto.</p>
+
+<ul>
+  <li>
+    <a [routerLink]="['produtos']">
+      <span class="item-title">Listar produtos</span>
+      <span class="item-desc">Veja todos os itens disponíveis e seus preços.</span>
+    </a>
+  </li>
+  <li>
+    <a [routerLink]="['clientes']">
+      <span class="item-title">Listar clientes</span>
+      <span class="item-desc">Consulte os clientes cadastrados e sua situação.</span>
+    </a>
+  </li>
+  <li>
+    <a [routerLink]="['produtos', 'novo']">
+      <span class="item-title">Novo produto</span>
+      <span class="item-desc">Adicione um item ao catálogo da loja.</span>
+    </a>
+  </li>
+</ul>
